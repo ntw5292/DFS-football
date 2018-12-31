@@ -1,0 +1,23 @@
+---
+title: "Data Cleaning"
+output: html_notebook
+---
+
+The different data sets have a common key to relate one set to the others. One will need to be created.
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(here)
+
+pbp_data <- read_csv(here("Data/play_by_play.csv"))
+salary_data <- read_csv(here("Data/salary_data.csv"))
+betting_lines <- read_csv(here("Data/betting_lines.csv"))
+```
+
+For games:
+The play by play data and betting lines data have a date column, those can be tied together
+The betting lines and salary data have week/season data, those can be tied together
+
+For players:
+The salary data has player names in Last, First format, the pay by play data has F.Last. There's also a player_id column, need to figure out how to get full names for the play by play data.
